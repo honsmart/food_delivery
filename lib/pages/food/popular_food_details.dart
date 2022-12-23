@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/dimentions.dart';
 import 'package:food_delivery/widgets/app_column.dart';
@@ -6,6 +5,7 @@ import 'package:food_delivery/widgets/app_column.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
+import '../../widgets/expandable_text_widget.dart';
 import '../../widgets/icon_and_text_widget.dart';
 import '../../widgets/small_text.dart';
 
@@ -18,6 +18,7 @@ class PopularFoodDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
+          //Background image
           Positioned(
               left: 0,
               right: 0,
@@ -33,6 +34,7 @@ class PopularFoodDetail extends StatelessWidget {
                      ,)
                 ),
           )),
+          //Icon widget
           Positioned(
               top: Dimensions.height45 ,
               left: Dimensions.width20,
@@ -44,6 +46,7 @@ class PopularFoodDetail extends StatelessWidget {
                    AppIcon(icon: Icons.shopping_bag_outlined,)
                  ],
               ),),
+          //Introduction of the food
           Positioned(
               left: 0,
               right: 0,
@@ -61,12 +64,19 @@ class PopularFoodDetail extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AppColumn(text: "Chicken Shawarma",),
+                    const AppColumn(text: "Chicken Shawarma",),
                     SizedBox(height: Dimensions.height20,),
                     BigText(text: "Introduce"),
+                    SizedBox(height: Dimensions.height20,), 
+                    //Expandable text widget
+                     const Expanded(child:
+                     SingleChildScrollView(
+                         child: ExpandableTextWidget(
+                           text:
+                           'Chicken shawarma is a popular Middle Eastern dish that consists of thin slices of marinated chicken that are grilled on a spit and served in a pita bread or wrap. The chicken is typically marinated in a mixture of yogurt, lemon juice, garlic, and a blend of Middle Eastern spices such as cumin, coriander, and paprika. The marinated chicken is then placed on a spit, or a long metal skewer, and cooked over an open flame or grill. As the chicken rotates on the spit, it is basted with the marinade, which helps to keep it moist and flavorful. The meat is cooked until it is tender and juicy, and is then shaved off the spit and placed into a pita bread or wrap with vegetables, such as lettuce, tomatoes, onions, and cucumbers, and a sauce, such as tahini or garlic sauce.',)))
                   ],
                 )
-          ))
+          )),
         ],
       ),
       bottomNavigationBar: Container(
